@@ -1,0 +1,906 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.app {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* BOTÓN MÚSICA */
+
+.boton-musica {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 50;
+}
+
+/* PANTALLA INICIAL */
+
+.pantalla-inicio {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+/* Esto centra la invitación y pone el fondo oscuro de afuera */
+.wrapper-fuera {
+  background-color: #121212; /* Un gris muy oscuro (no negro puro) */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+/* Esta es la tarjeta con la sombra lateral */
+.contenedor-principal {
+  width: 80%;
+  max-width: 1000px; /* Ancho máximo estilo móvil */
+  background-color: #000000; /* Negro puro adentro */
+  min-height: 100vh;
+  box-shadow: 0 0 90px rgba(59, 59, 59, 0.9); /* LA SOMBRA DE LA CAPTURA */
+  position: relative;
+  overflow: hidden;
+}
+
+.caja-inicio {
+  text-align: center;
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.caja-inicio h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 4rem;
+  margin: 0;
+}
+
+.caja-inicio h2 {
+  font-family: "Cormorant Garamond", serif;
+  margin-bottom: 20px;
+}
+
+.botones button {
+  margin: 10px;
+  padding: 12px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+/* PORTADA */
+.portada {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* Asegura que el contenido fluya hacia abajo */
+  align-items: center; 
+  justify-content: flex-start;
+  text-align: center;
+  position: relative;
+  padding-top: 120px;
+  /* AGREGÁ ESTO: */
+  padding-bottom: 12rem;
+  background: #000;
+  overflow: visible !important; /* Un poco más que los 10rem del margen negativo */
+}
+
+.fondo-curva {
+  position: absolute;
+  top: -21px; /* 🔥 ajustá esto */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+
+.contenido {
+  max-width: 800px;
+  padding: 60px;
+  border-radius: 20px;
+  
+  position: relative;
+  z-index: 2;
+}
+
+
+/* Solo agregamos esto para el icono nuevo */
+/* Contenedor para centrar el icono */
+.contenedor-icono-fiesta {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Estilo para el icono GiPartyPopper */
+.icono-fiesta-gi {
+  color: #ffffff; /* Blanco/Plata puro */
+  font-size: 70px; /* Tamaño ideal para este icono detallado */
+  opacity: 0.9;
+  
+  /* Animación de balanceo muy sutil para que "baile" */
+  animation: balanceoFiesta 3s infinite ease-in-out;
+  
+  /* Sin sombras pesadas, solo un toque de nitidez */
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+}
+
+@keyframes balanceoFiesta {
+  0% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+  100% { transform: rotate(-5deg); }
+}
+
+/* Ajuste para móviles */
+
+
+.fecha {
+  color: #aaa;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+
+
+.contenido {
+  position: relative;
+  z-index: 2;
+}
+.contenido h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 5rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.contenido h2 {
+  font-family: "Cormorant Garamond", serif;
+  margin: 20px 0;
+  font-size: 2.2rem;
+  font-weight: 500;
+}
+
+.texto {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.45;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.portada h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem; /* Un poco más chico para que entren las líneas */
+  margin: 0;
+  font-weight: 400;
+}
+
+.portada h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  margin: 15px 0;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.texto-invitacion {
+  max-width: 550px;
+  margin: 20px auto;
+  font-size: 1rem;
+  line-height:1.5;
+  color: #ccc;
+}
+/* PARTÍCULAS */
+
+.particulas {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 2px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.4) 1px, transparent 2px);
+  background-size: 120px 120px, 200px 200px;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+/* CUENTA REGRESIVA */
+
+.cuenta {
+  position: relative;
+  margin-top: 0;
+  padding-top: 7rem;
+  padding-bottom: 5rem;
+  text-align: center;
+  z-index: 3;
+}
+
+.flores-seccion {
+  position: absolute;
+  top: -150px;          /* antes 0 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.95;
+}
+.anim-corazon-contador {
+  width: 100px;          /* 🔥 Bajamos de 60px a 45px para que sea más fino */
+  margin: 35px auto 0;  /* 🔥 Aumentamos el margen superior para despegarlo de los números */
+  position: relative;
+  z-index: 2;
+  animation: fadeCorazon 1.2s ease;
+  display: flex;
+  justify-content: center;
+}
+
+
+.linea-nombre {
+  flex: 1; /* Ocupa el espacio disponible */
+  height: 1px; /* Alto de la línea */
+  border: 0; /* Quitamos el borde sólido */
+  
+  /* --- EL TRUCO DEL DEGRADADO --- */
+  /* Creamos un degradado que va:
+     - De transparente (extremo izquierdo)
+     - A blanco sólido (pegado al nombre)
+     - Y viceversa para la otra línea
+  */
+  background: linear-gradient(
+    to right, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.7) 50%, 
+    transparent 100%
+  );
+  
+  /* Ajuste para que las líneas no sean tan largas en compu */
+  max-width: 500px; 
+  min-width: 30px; /* Evitamos que desaparezcan del todo en celu */
+  opacity: 0.8; /* Un toque de transparencia general para suavizar */
+}
+
+/* Ajuste para el celular (Media Query 480px) */
+@media (max-width: 480px) {
+  .linea-nombre {
+    max-width: 80px; /* Más cortas en el celu */
+    min-width: 20px;
+  }
+}
+.anim-fiesta {
+  width: 95px;
+  margin: 0 auto 1.2rem;
+}
+/* caja del contador */
+.caja-contador {
+  /* Un degradado más limpio: de transparente a un blanco muy sutil (5% y 10%) */
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+
+  /* Mantenemos tus medidas de espacio */
+  padding: 70px 3.75rem 3rem;
+  max-width: 1000px; /* Equivalente a 62.5rem para mantener consistencia */
+  margin: 0 auto;
+  
+  /* El desenfoque de fondo le da el toque "vidrio" (Glassmorphism) */
+  backdrop-filter: blur(8px); 
+  -webkit-backdrop-filter: blur(8px); /* Para que funcione en iPhones/Safari */
+  
+  position: relative;
+  z-index: 2;
+  border-radius: 0 0 20px 20px; /* Opcional: redondeamos solo abajo */
+}
+
+.caja-contador h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 4rem;
+  font-weight: 500;
+  margin: 0 0 30px;
+  color: #f1f1f1;
+}
+
+/* contador */
+.contador {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.item-tiempo {
+  min-width: 120px;
+  padding: 0 18px;
+  position: relative;
+  text-align: center;
+}
+
+.item-tiempo:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: 0;
+  width: 1px;
+  height: 92px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.item-tiempo span {
+  display: block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 4rem;
+  line-height: 1;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.62);
+  margin-bottom: 8px;
+}
+
+.item-tiempo p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #ffffff;
+  text-transform: lowercase;
+}
+
+
+/* EVENTO */
+
+.evento {
+  padding: 5rem 1.25rem 7rem;
+  text-align: center;
+  position: relative;
+}
+
+.caja-evento {
+  width: 100%;
+  max-width: 470px;
+  margin: 0 auto;
+  padding: 3.5rem 2.2rem 3rem;
+  border-radius: 1.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+}
+
+.caja-evento h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3.4rem;
+  font-weight: 500;
+  margin: 0 0 2.2rem;
+  color: #ffffff;
+}
+
+.bloque-evento {
+  margin-bottom: 2.7rem;
+}
+
+.bloque-evento:last-child {
+  margin-bottom: 0;
+}
+
+.bloque-evento h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.3rem;
+  font-weight: 400;
+  margin: 0 0 0.65rem;
+  color: #d0e6ee;
+}
+
+.bloque-evento p {
+  margin: 0 0 1rem;
+  color: #ffffff;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.boton-evento {
+  display: inline-block;
+  min-width: 210px;
+  padding: 0.95rem 1.5rem;
+  border-radius: 0.75rem;
+  background: #f1f1f1;
+  color: #1a1a1a;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.boton-evento:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+/* Botón que reemplazó a Agendar */
+.boton-revelar-tarjeta {
+ 
+  color: #050000 !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+/* El panel con los precios y el CBU */
+.detalles-tarjeta-desplegable {
+  margin-top: 1.5rem;
+  padding: 1.2rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  text-align: left;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.datos-cbu-hermana {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 15px;
+  font-family: monospace;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.galeria-fotos-seccion {
+  background: #000;
+  padding: 2rem 0 4rem;
+  overflow: hidden;
+}
+
+.flor-galeria-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.flor-galeria-img {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  display: block;
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+.contenido-galeria {
+  text-align: center;
+  padding: 0 1rem;
+  margin-bottom: 2rem;
+}
+
+.contenido-galeria h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3.2rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+}
+
+.contenido-galeria p {
+  margin-top: 0.7rem;
+  color: #d8d8d8;
+  font-size: 1rem;
+}
+
+.swiper-galeria-wrap {
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+.mi-swiper-galeria {
+  overflow: visible !important;
+}
+
+.mi-swiper-galeria .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.65;
+  transform: scale(0.9);
+  transition: all 0.4s ease;
+}
+
+.mi-swiper-galeria .swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.foto-swiper {
+  width: 100%;
+  max-width: 320px;
+  height: 430px;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.modal-imagen {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 20px;
+}
+
+.modal-imagen img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .contenido-galeria h2 {
+    font-size: 2.4rem;
+  }
+
+  .contenido-galeria p {
+    font-size: 0.95rem;
+  }
+
+  .foto-swiper {
+    max-width: 260px;
+    height: 340px;
+  }
+
+  .flor-galeria-img {
+    width: 115%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .foto-swiper {
+    max-width: 220px;
+    height: 300px;
+  }
+
+  .contenido-galeria h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .contenido h1 {
+    font-size: 4.2rem;
+  }
+
+  .caja-contador {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  /* 1. Botón de música un poco más táctil para dedos */
+  .boton-musica {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+    right: 15px;
+    top: 15px;
+  }
+
+  /* 2. Pantalla de Bienvenida */
+  .caja-inicio {
+    width: calc(100% - 32px);
+    padding: 32px 24px;
+  }
+  .caja-inicio h1 { font-size: 3rem; }
+
+  /* 3. Portada (Ajuste de Padding para el solapamiento) */
+  .portada {
+    padding-top: 80px;
+    padding-bottom: 2rem; /* Colchón para que el contador no tape el texto */
+  }
+
+  .contenido {
+    max-width: calc(100% - 32px);
+    padding: 40px 15px; /* Un poco menos de padding lateral para ganar aire */
+  }
+  .contenido h1 { font-size: 3.2rem; }
+  .contenido h2 { font-size: 1.8rem; }
+  .texto { font-size: 0.95rem; }
+
+  /* 4. Cuenta Regresiva y Flores */
+.cuenta {
+  margin-top: 0;
+  padding-top: 3rem;
+  z-index: 20;
+  position: relative;
+}
+
+.flores-seccion {
+  top: -150px;
+  max-width: 100%;
+}
+
+.caja-contador {
+  padding: .625rem 1.4rem 2.5rem;
+  max-width: 92%;
+}
+
+  .caja-contador h2 { 
+    font-size: 3rem; 
+    margin-bottom: 2rem;
+    font-family: "Cormorant Garamond", serif;
+  }
+
+  .contador {
+    display: flex;
+    flex-wrap: nowrap; /* 🔥 Fuerza una sola línea */
+    justify-content: center;
+    max-width: 100%;
+    gap: 0;
+  }
+  .item-tiempo {
+    width: 25%;
+    position: relative;
+  }
+
+  /* Quitamos las barritas separadoras en el celu para que no queden raras */
+  .item-tiempo:not(:last-child)::after {
+    display: block;
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 20%;
+    width: 1px;
+    height: 60%;
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .item-tiempo span {
+    font-size: 2.8rem; /* Un poco más balanceado */
+    line-height: 1;
+  }
+
+  .item-tiempo p {
+    font-size: 0.85rem;
+    margin-top: 5px;
+  }
+
+  /* 6. Limpieza de elementos que quizás no usás */
+  .decoracion-cuenta, .curva-seccion {
+    display: none; /* Si no los tenés en el HTML, mejor que no ocupen memoria */
+  }
+  .icono-fiesta-gi {
+    font-size: 55px; /* Un poco más chico en celulares */
+  }
+
+}
+
+
+@media (max-width: 480px) {
+  /* 1. Textos Principales */
+  .contenido h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+
+  .contenido h2 {
+    font-size: 1.2rem;
+  }
+
+  .fecha {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+  }
+
+  /* 2. Caja del Contador */
+ .caja-contador {
+  padding: 5rem 0.5rem 2rem !important;
+  width: 95% !important;
+  margin: 0 auto;
+}
+
+  .caja-contador h2 {
+    font-size: 1.8rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* 3. Estructura del Contador (Fila) */
+  .contador {
+    display: flex !important;
+    flex-wrap: nowrap !important; /* Asegura una sola línea */
+    justify-content: space-evenly !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  /* 4. Columnas de Tiempo */
+  .item-tiempo {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    flex: 1 !important;
+    position: relative !important;
+    min-width: 0 !important;
+  }
+
+  .item-tiempo span {
+    font-size: 1.6rem !important;
+    line-height: 1.1 !important;
+    font-weight: 300;
+    text-align: center !important;
+    display: block !important;
+  }
+
+  .item-tiempo p {
+    font-size: 0.6rem !important;
+    margin: 2px 0 0 0 !important;
+    letter-spacing: 1px;
+    text-align: center !important;
+  }
+
+  /* 5. Líneas Divisorias */
+  .item-tiempo:not(:last-child)::after {
+    content: "" !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 20% !important;
+    height: 60% !important;
+    width: 1px !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  /* 6. Decoración (Corazón y Flores) */
+  .anim-corazon-contador {
+    width: 45px !important;
+    margin: 25px auto 0 !important;
+  }
+
+ .cuenta {
+  margin-top: 0 !important;
+  z-index: 10;
+  padding-top: .3125rem;
+}
+
+.flores-seccion {
+  top: -60px !important;
+  max-width: 115% !important;
+}
+  
+.portada {
+    position: relative;
+    /* CAMBIO CLAVE: Quitamos el hidden para que las flores que "suben" no se corten */
+    overflow: visible !important; 
+    min-height: 70vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Aseguramos que el fondo de la portada no termine en un hachazo */
+    background: linear-gradient(to bottom, #000 80%, transparent 100%) !important;
+  }
+
+  .fondo-curva {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* La centra horizontalmente */
+    
+    /* LA CLAVE: */
+    width: 150% !important;   /* La agrandamos un poco más que el ancho del celu */
+    max-width: none !important; 
+    height: auto;
+    z-index: 1;               /* Asegura que quede atrás del texto */
+    
+    /* Si la imagen se va muy arriba, podés jugar con este valor: */
+    margin-top: -3px; 
+  }
+
+  .contenido {
+    position: relative;
+    z-index: 2; /* El texto por encima de las estrellas */
+    padding-top: .1875rem; /* Le damos aire arriba para que no tape el diseño de las estrellas */
+  }
+
+  .portada .texto {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    padding: 0 15px; /* Para que el texto no toque los bordes del celu */
+    margin-top: 15px;
+  }
+/* Eliminamos cualquier sombra o degradado que tape las flores */
+  .portada::after, .portada::before {
+    display: none !important;
+    background: none !important;
+  }
+
+  .contenido {
+    background: transparent !important; /* Aseguramos que el contenedor no tenga fondo */
+    box-shadow: none !important;
+  }
+
+
+  .evento {
+    padding: .3125rem 1rem 4rem !important; /* Bajamos de 5rem a 2rem el espacio inicial */
+    margin-top: -2rem; /* Lo subimos un poquito para cerrar el bache negro */
+  }
+
+  .caja-evento {
+    padding: 2rem 1.5rem !important; /* Menos aire interno para que rinda más la pantalla */
+    border-radius: 1.2rem !important; /* Un poco menos de curva para que se vea más moderno */
+  }
+
+  /* El título "Fiesta" principal */
+  .caja-evento h2 {
+    font-size: 2.2rem !important; /* De 3.4rem bajamos a 2.2rem */
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* Los subtítulos "Día", "Lugar", "Dirección" */
+  .bloque-evento h3 {
+    font-size: 1.6rem !important; /* Eran muy grandes, ahora más finos */
+    margin-bottom: 0.3rem !important;
+  }
+
+  /* El texto de la info (Sábado 20, Jazz Eventos, etc) */
+  .bloque-evento p {
+    font-size: 0.95rem !important;
+    margin-bottom: 0.8rem !important;
+    color: #ddd !important; /* Un gris claro para que no compita con los títulos */
+  }
+
+  /* Los botones "Agendar", "Confirmar", etc */
+  .boton-evento {
+    min-width: 160px !important; /* Más angostos para móvil */
+    padding: 0.7rem 1.2rem !important; /* Más bajitos */
+    font-size: 0.9rem !important;
+    border-radius: 0.5rem !important;
+  }
+
+  /* Reducimos el espacio entre bloques para que entre más info en una sola vista */
+  .bloque-evento {
+    margin-bottom: 2rem !important;
+  }
+
+}
+
+
+
+
