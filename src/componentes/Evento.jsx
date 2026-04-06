@@ -1,25 +1,25 @@
 import React, { useState } from "react";
-// Importamos el icono de la fiesta
-import { GiPartyPopper } from "react-icons/gi"; 
+// Importamos el reproductor y el archivo de confeti
+import { DotLottiePlayer } from '@dotlottie/react-player';
+import iconoConfeti from "../assets/confetti-1.json"; // <--- Nombre corregido
 
 function Evento() {
-  // --- ESTADO PARA MOSTRAR/OCULTAR LA INFO DE TARJETA ---
   const [verTarjeta, setVerTarjeta] = useState(false);
 
-  // --- ENLACE DE GOOGLE MAPS ---
-  // He actualizado este link para que busque la dirección real en Córdoba
   const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Emilio+Pettoruti+2191,+Córdoba";
-
-  // --- ENLACE DE WHATSAPP HERMANA (3518588107) ---
   const whatsappHermanaUrl = "https://wa.me/5493518588107?text=Hola!%20Confirmo%20mi%20asistencia%20a%20los%20XV%20de%20Josefina";
 
   return (
     <section className="evento">
       <div className="caja-evento">
         
-        {/* ICONO DE FIESTA */}
-        <div className="contenedor-icono-fiesta">
-          <GiPartyPopper className="icono-fiesta-gi" />
+        {/* ICONO DE FIESTA ANIMADO */}
+        <div className="contenedor-icono-fiesta" style={{ width: '100px', height: '100px', margin: '0 auto 10px' }}>
+          <DotLottiePlayer
+            src={iconoConfeti}
+            autoplay
+            loop
+          />
         </div>
 
         <h2>Fiesta</h2>
@@ -29,10 +29,9 @@ function Evento() {
           <h3>Día</h3>
           <p>Sábado 20 de junio - 21 hs</p>
           
-          {/* Este botón reemplaza a "Agendar" y activa el desplegable */}
-          <button 
+          <button
             onClick={() => setVerTarjeta(!verTarjeta)} 
-            className="boton-evento boton-revelar-tarjeta"
+            className="boton-evento"
           >
             {verTarjeta ? "Ocultar Valor Tarjeta" : "Valor-Tarjeta"}
           </button>
@@ -41,22 +40,22 @@ function Evento() {
           {verTarjeta && (
             <div className="detalles-tarjeta-desplegable animacion-fade-in">
               <div className="precio-box p-4 rounded shadow-sm">
-  <div className="mb-3">
-    <h5 className="fw-bold mb-1">Adultos</h5>
-    <p className="precio mb-0">$80.000</p>
-    <small className="text-muted">
-      O en 2 cuotas de $40.000 (20/04 y 20/05)
-    </small>
-  </div>
+                <div className="mb-3">
+                  <h5 className="fw-bold mb-1">Adultos</h5>
+                  <p className="precio mb-0">$80.000</p>
+                  <small className="text-muted">
+                    O en 2 cuotas de $40.000 (20/04 y 20/05)
+                  </small>
+                </div>
 
-  <hr />
+                <hr />
 
-  <div>
-    <h5 className="fw-bold mb-1">Niños y adolescentes</h5>
-    <p className="precio mb-0">$10.000</p>
-    <small className="text-muted">(Hasta los 16 años)</small>
-  </div>
-</div>
+                <div>
+                  <h5 className="fw-bold mb-1">Niños y adolescentes</h5>
+                  <p className="precio mb-0">$10.000</p>
+                  <small className="text-muted">(Hasta los 16 años)</small>
+                </div>
+              </div>
 
               <div className="datos-cbu-hermana">
                 <p><strong>Alias:</strong> soledadvidal.mp</p>

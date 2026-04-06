@@ -28,7 +28,7 @@ function GaleriaFotos() {
 
       <div className="contenido-galeria">
         <h2>Mi esencia</h2>
-        <p>Un pedacito de lo que soy</p>
+        <p>Un pedacito de lo que Soy...</p>
       </div>
 
       <div className="swiper-galeria-wrap">

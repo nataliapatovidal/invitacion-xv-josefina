@@ -10,7 +10,7 @@
 
 body {
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Arial', sans-serif;
   background: #000;
   color: #fff;
   overflow-x: hidden;
@@ -21,7 +21,7 @@ body {
   position: relative;
 }
 
-/* PANTALLA DE ENTRADA */
+/* --- PANTALLA DE INICIO (CENTRADA) --- */
 .pantalla-inicio {
   position: fixed;
   inset: 0;
@@ -35,111 +35,106 @@ body {
 
 .caja-inicio {
   width: 100%;
-  max-width: 600px;
-  padding: 60px 40px;
+  max-width: 400px; /* Más angosta para que sea elegante */
+  padding: 40px 20px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 24px;
   text-align: center;
   background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ESTO CENTRA TODO */
 }
 
+/* --- TEXTOS --- */
 .bienvenida-texto {
   color: #bfbfbf;
-  font-size: 18px;
-  margin-bottom: 30px;
+  font-size: 16px;
+  margin-bottom: 15px;
   letter-spacing: 1px;
 }
 
-.nombre-inicio {
-  font-size: 64px;
-  font-family: "Playfair Display", serif;
-  color: #ffffff;
-  margin: 0 0 20px;
-  line-height: 1;
+
+/* --- 1. AJUSTAMOS LA IMAGEN DE LA CORONA --- *//* --- 1. LA CORONA (DETALLE FINO) --- */
+/* --- 1. LA CORONA (CON SU REFLEJO) --- */
+.img-corona {
+  width: 100px !important; /* Tamaño detalle */
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+  position: relative;
+  z-index: 1; /* Queda atrás */
 }
 
+/* --- 2. EL NOMBRE (ENCIMADO SOBRE EL REFLEJO) --- */
+.nombre-inicio {
+  font-size: 52px;
+  font-family: "Playfair Display", serif;
+  color: #ffffff;
+  /* 👇 SUBIMOS EL NOMBRE UN POQUITO PARA QUE TOQUE EL REFLEJO */
+  margin-top: -20px !important; 
+  margin-bottom: 10px; 
+  line-height: 1;
+  position: relative; 
+  z-index: 2; /* Queda adelante */
+  text-shadow: 0 2px 15px rgba(87, 86, 86, 0.9); /* Sombra negra para que resalte */
+}
+
+/* --- 3. LÍNEA Y SUBTÍTULO --- */
 .linea-decorativa {
-  width: 70%;
+  width: 55%;
   height: 1px;
-  margin: 20px auto;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(192, 192, 192, 0.8),
-    transparent
-  );
+  margin: 5px auto;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);
 }
 
 .subtitulo-inicio {
-  font-size: 28px;
+  font-size: 24px;
   color: #d9d9d9;
-  margin-top: 20px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   font-family: "Playfair Display", serif;
 }
 
-.musica-aviso {
-  color: #a6a6a6;
-  font-size: 16px;
-  margin-bottom: 35px;
-}
-
-.botones-inicio {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
+/* --- 4. BOTÓN RECTANGULAR CON SOMBRA --- */
 .btn-inicio {
-  background: #e6e6e6;
-  color: #111;
-  padding: 12px 22px;
-  border-radius: 10px;
+  display: inline-block;
+  min-width: 210px; /* Para que mantenga el tamaño de los otros */
+  padding: 0.95rem 1.5rem;
+  border-radius: 0.75rem; /* El mismo redondeo que venimos usando */
+  background: #f1f1f1;
+  color: #1a1a1a;
+  font-size: 1rem;
+  
+  /* Peso normal/medio, sin negrita */
+  font-weight: 500; 
+  
+  /* Quitamos mayúsculas y sombras pesadas */
+  text-transform: none; 
+  letter-spacing: normal;
   border: none;
-  font-size: 15px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  text-decoration: none;
+  
+  /* Transición suave como los demás */
+  transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+  box-shadow: none; 
 }
 
 .btn-inicio:hover {
   background: #ffffff;
   transform: translateY(-2px);
+  opacity: 0.95;
+}
+/* EFECTO DE ENTRADA */
+.fade-in {
+  animation: aparecer 1s ease-out forwards;
 }
 
-/* BOTÓN MÚSICA */
-.boton-musica {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-  z-index: 50;
-}
-
-/* WRAPPER EXTERIOR */
-.wrapper-fuera {
-  background-color: #121212;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-}
-
-.contenedor-principal {
-  width: 80%;
-  max-width: 1000px;
-  background-color: #000000;
-  min-height: 100vh;
-  box-shadow: 0 0 90px rgba(59, 59, 59, 0.9);
-  position: relative;
-  overflow: hidden;
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* PORTADA */
@@ -227,14 +222,14 @@ body {
   z-index: 2;
 }
 .contenido h1 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: 'Playfair Display', serif;
   font-size: 5rem;
   margin: 0;
   font-weight: 600;
 }
 
 .contenido h2 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: 'Playfair Display', serif;
   margin: 20px 0;
   font-size: 2.2rem;
   font-weight: 500;
@@ -249,14 +244,14 @@ body {
 }
 
 .portada h1 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 4rem; /* Un poco más chico para que entren las líneas */
   margin: 0;
   font-weight: 400;
 }
 
 .portada h2 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 1.8rem;
   margin: 15px 0;
   font-weight: 300;
@@ -378,7 +373,7 @@ body {
 }
 
 .caja-contador h2 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: 'Playfair Display', serif;
   font-size: 4rem;
   font-weight: 500;
   margin: 0 0 30px;
@@ -424,7 +419,7 @@ body {
 
 .item-tiempo p {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 1.125rem;
   color: #ffffff;
   text-transform: lowercase;
 }
@@ -440,7 +435,6 @@ body {
 }
 
 .caja-evento {
-  
   width: 100%;
   max-width: 470px;
   margin: 0 auto;
@@ -448,12 +442,12 @@ body {
   border-radius: 1.8rem;
   border: 1px solid rgba(255, 255, 255, 0.55);
   background: rgba(0, 0, 0, 0.9);
-  box-shadow: 0 0 90px rgba(59, 59, 59, 0.9);
+  box-shadow: 0 0 50px rgba(100, 100, 100, 0.9);
 
 }
 
 .caja-evento h2 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: 'Playfair Display', serif;
   font-size: 3.4rem;
   font-weight: 500;
   margin: 0 0 2.2rem;
@@ -469,7 +463,7 @@ body {
 }
 
 .bloque-evento h3 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: 'Playfair Display', serif;
   font-size: 2.3rem;
   font-weight: 400;
   margin: 0 0 0.65rem;
@@ -501,12 +495,6 @@ body {
   opacity: 0.95;
 }
 
-/* Botón que reemplazó a Agendar */
-.boton-revelar-tarjeta {
-
-  color: #050000 !important;
-  border: 1px solid rgba(255, 255, 255, 0.4) !important;
-}
 
 /* El panel con los precios y el CBU */
 .detalles-tarjeta-desplegable {
@@ -561,7 +549,7 @@ body {
 }
 
 .contenido-galeria h2 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: 'Playfair Display', serif;
   font-size: 3.2rem;
   font-weight: 500;
   color: #fff;
@@ -569,6 +557,7 @@ body {
 }
 
 .contenido-galeria p {
+  font-family: 'Arial', sans-serif;
   margin-top: 0.7rem;
   color: #d8d8d8;
   font-size: 1rem;
@@ -628,9 +617,9 @@ body {
 
 .brillos-wrap {
   position: relative;
-  width: 100%;
+  width: 150%;
   height: 180px;
-  margin-top: -90px;
+  margin-top: -100px;
   margin-bottom: -70px;
   z-index: 1;
   pointer-events: none;
@@ -641,115 +630,222 @@ body {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
+  width: 150%;
   max-width: 1000px;
-  opacity: 0.8;
+  opacity: 1;
   display: block;
 }
 
-.regalos {
+/* --- CONTENEDOR GENERAL --- */
+.regalos-seccion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px; 
+  padding: 60px 0;
   background: #000;
-  text-align: center;
-  padding: 30px 20px 80px;
-  position: relative;
-  overflow: hidden;
 }
 
+/* --- CAJA ESTILO (ÚNICA DEFINICIÓN) --- */
 .caja-regalos {
-  max-width: 900px;
-  width: 100%;
-  margin: 0 auto;
+  width: 90%;
+  max-width: 450px;
+  padding: 40px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(8px);
   position: relative;
   z-index: 2;
+  box-shadow: 0 10px 30px rgba(102, 101, 101, 0.5);
 }
-
-
-
-
 
 .titulo-regalos {
   font-family: "Playfair Display", serif;
-  font-size: 64px;
-  font-weight: 400;
-  color: #fff;
-  margin: 0 0 10px;
+  font-size: 2.2rem;
+  color: #ffffff;
+  margin-bottom: 10px;
 }
 
 .texto-regalos {
-  font-size: 18px;
+  font-size: 1.1rem;
   color: #bfbfbf;
-  margin-bottom: 35px;
+  margin-bottom: 25px;
+  line-height: 1.4;
 }
 
-.icono-regalo-contenedor {
+/* --- ICONOS Y ANIMACIONES --- */
+.contenedor-icono-dress, .icono-regalo-contenedor {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
   display: flex;
   justify-content: center;
-  margin-bottom: 35px;
+  align-items: center;
 }
 
-.icono-regalo {
-  font-size: 72px;
-  color: rgba(255, 255, 255, 0.7);
-  animation: flotarRegalo 2.8s ease-in-out infinite;
+.svg-vestuario-animado {
+  width: 85px;
+  height: auto;
+  filter: brightness(0) invert(1); 
+  animation: balanceoPercha 3s ease-in-out infinite;
+  transform-origin: top center;
 }
 
+@keyframes balanceoPercha {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(6deg); }
+}
+
+/* --- BOTONES (CORREGIDO MAYÚSCULAS) --- */
 .boton-regalo {
-  background: #e8e8e8;
-  color: #111;
+  display: inline-block;
+  min-width: 210px;
+  padding: 0.95rem 1.5rem;
+  border-radius: 0.75rem; /* Bordes más redondeados como el otro */
+  background: #f1f1f1;
+  color: #1a1a1a;
+  font-size: 1rem;
+  
+  /* Peso normal/medio sin negrita */
+  font-weight: 500; 
+  
+  /* Respetamos minúsculas */
+  text-transform: none; 
+  letter-spacing: normal;
+  
   border: none;
-  border-radius: 14px;
-  padding: 18px 34px;
-  font-size: 18px;
-  font-family: "Playfair Display", serif;
   cursor: pointer;
-  transition: all 0.3s ease;
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+  
+  /* Quitamos las sombras pesadas para que sea igual al otro */
+  box-shadow: none; 
 }
 
 .boton-regalo:hover {
-  background: #fff;
+  background: #ffffff;
   transform: translateY(-2px);
+  opacity: 0.95;
 }
 
+/* --- DESPLEGABLES --- */
 .datos-regalo {
-  margin-top: 30px;
-  padding: 25px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.03);
-  color: #e5e5e5;
-}
-
-.datos-regalo p {
-  margin: 10px 0;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
 }
 
 .animacion-fade-in {
-  animation: fadeInSuave 0.5s ease;
+  animation: fadeIn 0.5s ease-out forwards;
 }
 
-@keyframes fadeInSuave {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes flotarRegalo {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+.seccion-final-container {
+  background-color: #000;
+  color: #fff;
+  padding:0 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  overflow: visible;
 }
 
+/* Brillos pegados arriba */
+.brillos-top {
+  width: 200%; /* 200% puede ser mucho, 150% suele cubrir bien los bordes */
+  max-width: 900px;
+  opacity: 1;
+  /* AJUSTE CLAVE AQUÍ: */
+  margin-top: -30px;    /* Sube la imagen hacia la sección de Regalos */
+  margin-bottom: -50px; /* Acerca el nombre de Josefina a los brillos */
+  pointer-events: none;
+  z-index: 1;
+}
 
+.bloque-central {
+  z-index: 5;
+  margin-top: 0; /* Aseguramos que no haya margen extra aquí */
+}
+
+.linea-decorativa {
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #fff, transparent);
+  /* 15px de espacio con "Mis XV años" y 30px con el mensaje de confirmación */
+  margin: 15px auto 30px; 
+  border: none;
+}
+
+.nombre-principal {
+  font-size: 2.8rem;
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+}
+
+.subtitulo-principal {
+  font-size: 1rem;
+  margin-top: .3125rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.mensaje-confirmacion {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.4;
+  font-size: 1.1rem;
+}
+
+.highlight {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* Flores pegadas abajo */
+.flores-bottom {
+  width: 100%; /* Un poco más grande para que desborde elegante */
+  max-width: 600px;
+  margin-top: -10px;
+  opacity: 0.8;
+}
+
+.footer-pixela {
+  margin-top: 20px;
+  z-index: 3;
+}
+
+.footer-pixela p {
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+}
+
+.logo-footer {
+  height: 25px;
+  width: auto;
+  margin-bottom: 5px;
+}
+
+.footer-pixela small {
+  display: block;
+  font-size: 0.7rem;
+  opacity: 0.5;
+}
+/* --- RESPONSIVE --- */
+@media (max-width: 480px) {
+  .titulo-regalos { font-size: 1.8rem; }
+  .nombre-inicio { font-size: 44px; } /* Ajuste por si usás el mismo CSS para la entrada */
+}
 /* Ajuste para el celular (Media Query 480px) */
 
 
@@ -804,12 +900,12 @@ body {
 }
 
 .flores-seccion {
-  top: -160px;
+  top: -20px;
   max-width: 100%;
 }
 
 .caja-contador {
-  padding: .3125rem 1.4rem 2.5rem;
+  padding: 11.25rem 1.4rem 2.5rem;
   max-width: 92%;
 }
 
