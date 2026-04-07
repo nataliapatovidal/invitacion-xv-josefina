@@ -19,7 +19,7 @@ const SeccionFinal = () => {
         <div className="mensaje-confirmacion">
           <p>Confirmá tu asistencia</p>
           <p>y reservá la fecha...</p>
-          <p className="highlight">¡¡se viene una noche increíble!!</p>
+          <p className="highlight">¡¡Se viene una noche increíble!!</p>
         </div>
       </div>
 
