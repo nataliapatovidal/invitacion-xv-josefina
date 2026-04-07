@@ -27,7 +27,7 @@ function Evento() {
         {/* BLOQUE: DÍA Y BOTÓN REVELAR INFO TARJETA */}
         <div className="bloque-evento">
           <h3>Día</h3>
-          <p>Sábado 20 de junio - 21 hs</p>
+          <p>Sábado 20 de junio - 22 hs</p>
           
           <button
             onClick={() => setVerTarjeta(!verTarjeta)} 
