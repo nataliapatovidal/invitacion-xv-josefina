@@ -40,20 +40,15 @@ function Evento() {
           {verTarjeta && (
             <div className="detalles-tarjeta-desplegable animacion-fade-in">
               <div className="precio-box p-4 rounded shadow-sm">
-                <div className="mb-3">
-                  <h5 className="fw-bold mb-1">Adultos</h5>
-                  <p className="precio mb-0">$80.000</p>
-                  <small className="text-muted">
-                    O en 2 cuotas de $40.000 (20/04 y 20/05)
-                  </small>
-                </div>
-
-                <hr />
 
                 <div>
-                  <h5 className="fw-bold mb-1">Niños y adolescentes</h5>
+                  <h5 className="fw-bold mb-1">Adolescentes</h5>
                   <p className="precio mb-0">$10.000</p>
-                  <small className="text-muted">(Hasta los 16 años)</small>
+                  <small className="text-muted">(Hasta los 16 años)
+                     <hr />
+                     
+                     Confirmar asistencia hasta el 20/04.
+                  </small>
                 </div>
               </div>
 
